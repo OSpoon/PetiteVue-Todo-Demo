@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetiteVue-Todo-Demo</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/Mock.js/1.0.1-beta3/mock-min.js"></script>
+</head>
+
+<body>
+
+    <div id="todoApp">
+        <h3>PetiteVue-Todo-Demo</h3>
+        <button v-debounce-click:1000="addition">(防抖指令)添加数据</button>
+        <button @click="addition">添加数据</button>
+        <ul style="height: 300px;overflow-y: auto;">
+            <li v-for="todo in todos">
+                <p>姓名: {{todo.name}}</p>
+                <p>地址: {{todo.address}}</p>
+                <p>
+                    <button @click="remove(todo.id)">删除数据</button>
+                </p>
+            </li>
+        </ul>
+        <p>Todo Size: {{todoSize}}</p>
+    </div>
+
+    <div id="todoStoreApp">
+        <h3>PetiteVue-TodoStore-Demo</h3>
+        <ul style="height: 300px;overflow-y: auto;">
+            <li v-for="todo in store.todoStore">
+                <p>姓名: {{todo.name}}</p>
+                <p>地址: {{todo.address}}</p>
+            </li>
+        </ul>
+        <p>Todo Store Size: {{store.todoStore.length}}</p>
+    </div>
+</body>
+<script src="./index.js" type="module"></script>
+
+</html>
